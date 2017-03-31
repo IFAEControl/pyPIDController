@@ -8,6 +8,7 @@ from pidcontroller.pid import PIDController
 
 
 class System(object):
+    """Simple system that simulates a glass of water with an actuator"""
     def __init__(self, init_temp=275, temp_amb=295, specific_heat=4.1868, mass=10, update_time=0.1):
         self.temp = init_temp
         self.temp_amb = temp_amb
