@@ -12,3 +12,5 @@ Simple library that implements a PID Controller in Python
         new_actuator_value = heater_pid.update(current_temp)
         change_actuator_power(new_actuator_value)
         time.sleep(1)
+
+Check test/devices.py for an extended example
