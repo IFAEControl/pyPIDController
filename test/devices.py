@@ -4,7 +4,7 @@
 # @Author  : Otger Ballester (otger@ifae.es)
 import time
 import threading
-from pidcontroller.pid import PIDController
+from pidcontroller import PIDController
 
 
 class System(object):
@@ -64,8 +64,9 @@ if __name__ == "__main__":
         cooler_system.change_actuator(cooler_pid.update(cooler_system.temp))
         heater_system.change_actuator(heater_pid.update(heater_system.temp))
         print('{0:.2f} - {1:.2f} ({2:.1f} + {3:.1f} + {4:.1f}) -  {5:.2f} - {6:.2f}  ({7:.1f} + {8:.1f} + {9:.1f})'.format(
-            cooler_system.temp, cooler_system.percent, cooler_pid.terms[0], cooler_pid.terms[1], cooler_pid.terms[2],
-            heater_system.temp, heater_system.percent, heater_pid.terms[0], heater_pid.terms[1], heater_pid.terms[2]))
+            cooler_system.temp, cooler_system.percent, cooler_pid.out_components[0], cooler_pid.out_components[1], cooler_pid.out_components[2],
+            heater_system.temp, heater_system.percent, heater_pid.out_components[0], heater_pid.out_components[1], heater_pid.out_components[2]))
+        # print(cooler_pid.status)
         timer = threading.Timer(2, update)
         timer.start()
 
