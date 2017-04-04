@@ -45,14 +45,14 @@ class PIDController(object):
                 'constants': {'kp': self.kp,
                               'ki': self.ki,
                               'kd': self.kd},
-                'components': {'p': self.out_components[0],
-                               'i': self.out_components[1],
-                               'd': self.out_components[2]},
+                'output_components': {'p': self.out_components[0],
+                                      'i': self.out_components[1],
+                                      'd': self.out_components[2]},
                 'output': self.output,
                 'output_range': self.output_range,
                 'updates': self.updates,
-                'enabled': self.enabled
-                }
+                'enabled': self.enabled}
+
     status = property(_get_status)
 
     def _clamp_term(self, value):
